@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ <f:view contentType="text/html">
+   <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+    <h:body>
+      
+        <p:outputPanel>
+            <div class="ui-g">
+                <div class="ui-g-4"/>
+                <div class="ui-g-4">
+                    <h3>Login</h3>
+                    <h:form id="login">
+                        <p:messages id="messages" globalOnly="true"/>
+                        <h:panelGrid columns="3" cellpadding="5" style="margin: 0 auto;">
+                            <p:outputLabel for="email" value="E-Mail"/>
+                            <p:inputText id="email" value="#{loginBacking.email}"/>
+                            <p:message for="email"/>
+                            <p:outputLabel for="password" value="Password"/>
+                            <p:inputText type="password" id="password" value="#{loginBacking.password}"/>
+                            <p:message for="password"/>
+                            <p:commandButton id="submit" update="@form" 
+                                 value="Login" action="#{loginBacking.submit}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+        </p:outputPanel>
+    </h:body>
+</f:view>
+</html>
