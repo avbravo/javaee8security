@@ -7,9 +7,25 @@
 <f:view>
     <h:head></h:head>
     <h:body>
+            <h:form>
+        <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="File" icon="pi pi-file">
+            <p:submenu label="New" icon="pi pi-briefcase">
+                <p:menuitem value="Project" url="#" />
+                <p:menuitem value="Other" url="#" />
+            </p:submenu>
+            <p:menuitem value="App"  action="/app/index" />
+            <p:menuitem value="User"  action="/admin/users" />
+            <p:separator />
+            <p:menuitem value="Quit" url="#" />
+        </p:submenu>
+    </p:menubar>
+        
         <p:outputLabel>Welcome to the application!</p:outputLabel>
         <p>Logged-in as #{request.userPrincipal.name}</p>
-        <h:form>
+    
             <p:commandButton value="Logout" action="#{logoutBacking.submit}"/>
             <p:commandButton value="ADMIN ROLE" rendered="#{p:ifGranted('ADMIN')}"/>
             <p:commandButton value="USER ROLE" rendered="#{p:ifGranted('USER')}"/>
